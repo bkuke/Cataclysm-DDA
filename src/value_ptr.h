@@ -14,6 +14,7 @@ namespace cata
  * This class is essentially a copyable unique pointer. Its purpose is to allow
  * for sparse storage of data without wasting memory in classes such as itype.
  */
+//就是一个可以复制的unique_ptr，另外多了两个函数，分别用于序列化和反序列化json。
 template <class T>
 class value_ptr : public std::unique_ptr<T>
 {
@@ -26,7 +27,9 @@ class value_ptr : public std::unique_ptr<T>
         value_ptr( const value_ptr<T> &other ) :
             std::unique_ptr<T>( other ? new T( *other ) : nullptr ) {}
         value_ptr &operator=( value_ptr<T> other ) {
+            // 等价于*this=move(other);然后返回 unique_ptr类的*this对象引用，但是返回值没有使用。
             std::unique_ptr<T>::operator=( std::move( other ) );
+            //返回value_ptr类的this引用
             return *this;
         }
 

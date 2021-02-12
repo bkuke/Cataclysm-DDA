@@ -1,6 +1,7 @@
 /* Entry point and main loop for Cataclysm
  */
-
+//#define TILES
+//#define LOCALIZE
 // IWYU pragma: no_include <sys/signal.h>
 #include <clocale>
 #include <algorithm>
@@ -63,10 +64,12 @@ class ui_adaptor;
 // Taken from: https://codelab.wordpress.com/2014/11/03/how-to-use-standard-output-streams-for-logging-in-android-apps/
 // Force Android standard output to adb logcat output
 
+//pdf是个管道，用pfd[1]写入日志，pfd[0]读取。
 static int pfd[2];
 static pthread_t thr;
 static const char *tag = "cdda";
 
+//死循环读取，最后一个字符设置为结束符号。
 static void *thread_func( void * )
 {
     ssize_t rdsz;
@@ -83,6 +86,7 @@ static void *thread_func( void * )
     return 0;
 }
 
+//建立管道，关闭1和2代表的标准输出和错误输出。开启线程，分离（不需要join）。
 int start_logger( const char *app_name )
 {
     tag = app_name;
@@ -97,6 +101,7 @@ int start_logger( const char *app_name )
     dup2( pfd[1], 2 );
 
     /* spawn the logging thread */
+    //返回值为0成功，否则返回errno，这里有点问题
     if( pthread_create( &thr, 0, thread_func, 0 ) == -1 ) {
         return -1;
     }
@@ -106,6 +111,7 @@ int start_logger( const char *app_name )
 
 #endif //__ANDROID__
 
+//匿名空间，只有本地有效
 namespace
 {
 
@@ -141,6 +147,7 @@ struct arg_handler {
     handler_method handler;  //!< The callback to be invoked when this argument is encountered.
 };
 
+//按help_group，分组显示所有参数信息
 template<typename FirstPassArgs, typename SecondPassArgs>
 void printHelpMessage( const FirstPassArgs &first_pass_arguments,
                        const SecondPassArgs &second_pass_arguments )
@@ -225,6 +232,7 @@ struct cli_opts {
     std::string world; /** if set try to load first save in this world on startup */
 };
 
+//处理通过launcher传递过来的命令行参数，根据参数修改cli_opts类型的result并返回引用。
 cli_opts parse_commandline( int argc, const char **argv )
 {
     cli_opts result;
@@ -232,6 +240,7 @@ cli_opts parse_commandline( int argc, const char **argv )
     const char *section_default = nullptr;
     const char *section_map_sharing = "Map sharing";
     const char *section_user_directory = "User directories";
+    //含有12个handler的数组，初始化。handler前四个是字符串，接着需要1个或者0参数，最后一个回调函数
     const std::array<arg_handler, 12> first_pass_arguments = {{
             {
                 "--seed", "<string of letters and or numbers>",
@@ -499,6 +508,7 @@ cli_opts parse_commandline( int argc, const char **argv )
 
 }  // namespace
 
+//他们不是用sdl给的main作为入口，用的自己的方法。所以在win32中用winmain。
 #if defined(USE_WINMAIN)
 int APIENTRY WinMain( HINSTANCE /* hInstance */, HINSTANCE /* hPrevInstance */,
                       LPSTR /* lpCmdLine */, int /* nCmdShow */ )
@@ -511,6 +521,12 @@ extern "C" int SDL_main( int argc, char **argv ) {
 int main( int argc, const char *argv[] )
 {
 #endif
+
+/*没有设置backtrace=1就是个空函数。
+否则，注册四个信号处理器（SIGSEGV, SIGILL, SIGABRT, SIGFPE）
+（就是在默认处理器前边，写入日志，然后再注册signal，然后统一abort()）。
+第二步处理异常导致的terminate，认得这个异常就写入log，不认识就写不认识然后abort()。
+*/
     init_crash_handlers();
 
 #if defined(__ANDROID__)
@@ -545,8 +561,9 @@ int main( int argc, const char *argv[] )
     PATH_INFO::init_user_dir( "./" );
 #   endif
 #endif
+//根据之前设置的path生成标准路径
     PATH_INFO::set_standard_filenames();
-
+//设置一些奇怪的默认变量，获取了电脑用户名。
     MAP_SHARING::setDefaults();
 
     cli_opts cli = parse_commandline( argc, const_cast<const char **>( argv ) );
@@ -610,10 +627,11 @@ int main( int argc, const char *argv[] )
 #endif
 
 #if !defined(TILES)
+    //初始化“设置”页面的选项啊之类的，不是很清楚，回头再看吧
     get_options().init();
     get_options().load();
 #endif
-
+    //单元测试，回头再看
     // in test mode don't initialize curses to avoid escape sequences being inserted into output stream
     if( !test_mode ) {
         try {
@@ -630,9 +648,10 @@ int main( int argc, const char *argv[] )
     }
 
     set_language();
-
+    //初始化随机数
     rng_set_engine_seed( cli.seed );
 
+    //处理终端宽和高，以及相关。
     game_ui::init_ui();
 
     g = std::make_unique<game>();
@@ -708,6 +727,7 @@ int main( int argc, const char *argv[] )
             }
         }
 
+        //服了，强行提速，单线程版本shared_ptr，感觉还是重构主体代码比较靠谱。
         shared_ptr_fast<ui_adaptor> ui = g->create_or_get_main_ui_adaptor();
         while( !g->do_turn() );
     }

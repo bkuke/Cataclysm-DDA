@@ -310,7 +310,9 @@ class translation
         translation( const std::string &str, no_translation_tag );
 
         cata::value_ptr<std::string> ctxt;
+        //原始文本
         std::string raw;
+        //原始文本的复数形式
         cata::value_ptr<std::string> raw_pl;
         bool needs_translation = false;
         // translation cache. For "plural" translation only latest `num` is optimistically cached
@@ -322,6 +324,7 @@ class translation
 /**
  * Shorthands for translation::to_translation
  **/
+//需要翻译设置为true，传入原始文本raw或/和 ctxt
 translation to_translation( const std::string &raw );
 translation to_translation( const std::string &ctxt, const std::string &raw );
 /**
@@ -333,6 +336,7 @@ translation pl_translation( const std::string &ctxt, const std::string &raw,
 /**
  * Shorthand for translation::no_translation
  **/
+//调用构造器传入raw(str)，不修改needtrans变量（保持false）
 translation no_translation( const std::string &str );
 
 /**

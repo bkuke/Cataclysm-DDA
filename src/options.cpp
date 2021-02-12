@@ -59,6 +59,7 @@ options_manager &get_options()
     return single_instance;
 }
 
+//无参构造，游戏的设置页面上显示的几个选项页面名称初始化。然后视情况放入vector。最后两个map初始化。
 options_manager::options_manager() :
     general_page_( "general", to_translation( "General" ) ),
     interface_page_( "interface", to_translation( "Interface" ) ),
@@ -67,6 +68,7 @@ options_manager::options_manager() :
     debug_page_( "debug", to_translation( "Debug" ) ),
     android_page_( "android", to_translation( "Android" ) )
 {
+    //emplace系列函数用元素的构造器和参数直接构造，构造结果再放入容器中。
     pages_.emplace_back( general_page_ );
     pages_.emplace_back( interface_page_ );
     pages_.emplace_back( graphics_page_ );
@@ -992,9 +994,11 @@ std::vector<options_manager::id_and_option> options_manager::build_soundpacks_li
     return result;
 }
 
+//获取翻译文件的目录名来确定可以用几国语言。
 std::unordered_set<std::string> options_manager::get_langs_with_translation_files()
 {
 #if defined(LOCALIZE)
+    //返回lang/mo/(-->en/zh_Cn/...<--)/LC_MESSAGES/cataclysm-dda.mo
     const std::string start_str = locale_dir();
     std::vector<std::string> lang_dirs =
         get_directories_with( PATH_INFO::lang_file(), start_str, true );
@@ -1011,6 +1015,7 @@ std::unordered_set<std::string> options_manager::get_langs_with_translation_file
 #endif // LOCALIZE
 }
 
+//创建理想的语言列表lang_options，搜索实际上有的lang_list，比对复制，最后返回。
 std::vector<options_manager::id_and_option> options_manager::get_lang_options()
 {
     std::vector<id_and_option> lang_options = {
@@ -1097,6 +1102,7 @@ void options_manager::Page::removeRepeatedEmptyLines()
 
 void options_manager::init()
 {
+    //把map清空,虽说好像也没啥好清的？？？这是初始化呢，清个锤子
     options.clear();
     for( Page &p : pages_ ) {
         p.items_.clear();

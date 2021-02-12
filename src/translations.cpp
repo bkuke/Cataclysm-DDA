@@ -200,6 +200,7 @@ std::string locale_dir()
     return loc_dir;
 }
 
+//获取游戏选中或默认的语言，可能更改LANGUAGE环境变量。
 void set_language()
 {
     std::string win_or_mac_lang;

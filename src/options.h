@@ -47,10 +47,13 @@ class options_manager
 
         void update_global_locale();
 
+        //一个map，包含sring键值对。
         std::map<std::string, std::string> post_json_verify;
 
+        //一个map,key是string，value是pair。pair里面是string和map。map里面是字符串键值对。
         std::map<std::string, std::pair<std::string, std::map<std::string, std::string> > > mMigrateOption;
 
+        //友元函数，返回静态类实例
         friend options_manager &get_options();
         options_manager();
 
@@ -269,7 +272,9 @@ class options_manager
                   const std::string &format = "%.2f" );
 
     private:
+        //一个map,存放string和cOpt,cOpt是具体的设置选项。
         options_container options;
+        //某张地图的具体设置
         cata::optional<options_container *> world_options;
 
         /**
@@ -283,9 +288,12 @@ class options_manager
         class Page
         {
             public:
+                //id是真的id
                 std::string id_;
+                //name已经传入了英文显示的名字，可以随时取出翻译
                 translation name_;
-
+                
+                //vector，元素是optional：<string>和char联合体，full表示状态
                 std::vector<cata::optional<std::string>> items_;
 
                 void removeRepeatedEmptyLines();
@@ -318,6 +326,7 @@ extern std::map<std::string, std::string> SOUNDPACKS;
 
 options_manager &get_options();
 
+//获取具体某个名字的选项设定值。
 template<typename T>
 inline T get_option( const std::string &name )
 {
