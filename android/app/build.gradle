@@ -245,7 +245,7 @@ android {
     productFlavors {
         stable {
             dimension "version"
-            resValue "string", "app_name", "Cataclysm DDA"
+            resValue "string", "app_name", "浩劫余生"
         }
         experimental {
             dimension "version"
@@ -355,4 +355,8 @@ sourceSets {
 
 dependencies {
     api fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
 }

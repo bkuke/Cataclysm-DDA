@@ -1,3 +1,5 @@
+android/app/stable/*
+android/app/jni/libhidapi/*
 !src/chkjson
 *.7z
 *.a

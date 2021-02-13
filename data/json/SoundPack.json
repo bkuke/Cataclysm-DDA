@@ -1,0 +1,73 @@
+[
+  {
+    "type": "direct_download",
+    "viewname": "ChestHole",
+    "name": "ChestHole",
+    "url": "http://chezzo.com/cdda/ChestHoleSoundSet.zip",
+    "homepage": "https://discourse.cataclysmdda.org/t/ambient-sounds/9710/182"
+  },
+  {
+    "type": "direct_download",
+    "viewname": "ChestOldTimey",
+    "name": "ChestOldTimey",
+    "url": "http://chezzo.com/cdda/ChestOldTimeyLessismore.zip",
+    "homepage": "https://www.reddit.com/r/cataclysmdda/comments/53ndzx/music_recommendations_to_listen_to_while_playing/d7vfd7w"
+  },
+  {
+    "type": "direct_download",
+    "viewname": "ChestHoleCC",
+    "name": "ChestHoleCC",
+    "url": "http://chezzo.com/cdda/ChestHoleCCSoundset.zip",
+    "homepage": "https://www.reddit.com/r/cataclysmdda/comments/53ndzx/music_recommendations_to_listen_to_while_playing/d7vfd7w"
+  },
+  {
+    "type": "direct_download",
+    "viewname": "RRFSounds",
+    "name": "RRFSounds",
+    "url": "https://www.dropbox.com/s/d8dfmb2facvkdh6/RRFSounds.zip?dl=1",
+    "size": 80933991,
+    "homepage": "https://discourse.cataclysmdda.org/t/ambient-sounds/9710/201"
+  },
+  {
+    "type": "direct_download",
+    "viewname": "CDDA-Soundpack",
+    "name": "CDDA-Soundpack",
+    "url": "https://github.com/budg3/CDDA-Soundpack/archive/master.zip",
+    "size": 48214543,
+    "homepage": "https://discourse.cataclysmdda.org/t/cdda-soundpack/15329"
+  },
+  {
+    "type": "browser_download",
+    "viewname": "CO.AG SoundPack",
+    "name": "CO.AG SoundPack",
+    "size": 126161760,
+    "url": "https://drive.google.com/uc?id=1kjKQDOD0sYQY8QIH6fg8rgqEQgm8Bbqn&export=download",
+    "expected_filename": "CO.AG SoundPack (v1.1) (02-Mar-19).zip",
+    "homepage": "https://discourse.cataclysmdda.org/t/soundpack-co-ag-soundpack/18992"
+  },
+  {
+    "type": "browser_download",
+    "viewname": "2ch soundpack",
+    "name": "2ch soundpack",
+    "size": 101963863,
+    "url": "https://drive.google.com/open?id=14_ZlFCwqavU8JJ9X4PHVM5vqEXs46OsM",
+    "expected_filename": "2ch sounpack.zip",
+    "homepage": "https://github.com/remyroy/CDDA-Game-Launcher/issues/248"
+  },
+  {
+    "type": "direct_download",
+    "viewname": "@'s soundpack",
+    "name": "@'s soundpack",
+    "url": "https://github.com/damalsk/damalsksoundpack/archive/v0.2.zip",
+    "size": 164342384,
+    "homepage": "https://discourse.cataclysmdda.org/t/soundpack-s-soundpack-vehicle-sounds-licensed-music-and-more/20131"
+  },
+  {
+    "type": "direct_download",
+    "viewname": "Otopack",
+    "name": "Otopack",
+    "url": "https://github.com/Kenan2000/Otopack-Mods-Updates/archive/master.zip",
+    "size": 139984997,
+    "homepage": "https://github.com/Kenan2000/Otopack-Mods-Updates"
+  }
+]

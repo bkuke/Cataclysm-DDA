@@ -29,6 +29,7 @@ public class SplashScreen extends Activity {
     private ProgressDialog installDialog;
 
     public CharSequence[] mSettingsNames = { "Software rendering", "Force fullscreen", "Trap Back button" };
+    public CharSequence[] mSettingsNameCn = { "软件渲染", "强制全屏", "捕获返回键" };
     public boolean[] mSettingsValues = { false, false, true };
 
     private String getVersionName() {
@@ -115,7 +116,7 @@ public class SplashScreen extends Activity {
         @Override
         protected void onPreExecute() {
             installationAlert = new AlertDialog.Builder(SplashScreen.this)
-                .setTitle("Installation Failed")
+                .setTitle("安装失败")
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -147,13 +148,13 @@ public class SplashScreen extends Activity {
 
             settingsAlert = new AlertDialog.Builder(SplashScreen.this)
                 .setTitle("Settings")
-                .setMultiChoiceItems(SplashScreen.this.mSettingsNames, SplashScreen.this.mSettingsValues, new DialogInterface.OnMultiChoiceClickListener() {
+                .setMultiChoiceItems(SplashScreen.this.mSettingsNameCn, SplashScreen.this.mSettingsValues, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                         SplashScreen.this.mSettingsValues[which] = isChecked;
                     }})
                 .setCancelable(false)
-                .setPositiveButton("Start game", new DialogInterface.OnClickListener() {
+                .setPositiveButton("开始游戏", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         for (int i = 0; i < mSettingsNames.length; ++i)
                             PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putBoolean(SplashScreen.this.mSettingsNames[i].toString(), SplashScreen.this.mSettingsValues[i]).commit();
@@ -161,7 +162,7 @@ public class SplashScreen extends Activity {
                         return;
                     }
                 })
-                .setNeutralButton("Show help", new DialogInterface.OnClickListener() {
+                .setNeutralButton("帮助", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         helpAlert.show();
                         return;

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="installTitle">Installing game data...</string>
-    <string name="upgradeTitle">Upgrading game data...</string>
-    <string name="helpTitle">Help &amp; Controls</string>
-    <string name="helpMessage">"Swipe" for directional movement (hold for virtual joystick). "Tap" to confirm selection in menu or Pause one turn in-game (hold to Pause several turns in-game). "Double tap" to cancel or go back in menus (works like Escape key). "Pinch" to zoom in/out (in-game). Use hardware "Back" button to toggle virtual keyboard (hold to toggle keyboard shortcuts).</string>
+    <string name="installTitle">正在安装程序。。。</string>
+    <string name="upgradeTitle">正在升级。。。</string>
+    <string name="helpTitle">帮助 &amp; 控制</string>
+    <string name="helpMessage">手指“轻滑”一下表示方向移动（按住启动虚拟操纵杆）。“轻点“确认菜单中的选择或继续一轮游戏（按住可跳过几轮游戏）。”双击“取消或返回菜单。”捏“放大/缩小（游戏中）。使用“返回”按钮切换虚拟键盘（按住可切换键盘快捷键）。</string>
+    <string name="sset">----设置：</string>
+    <string name="forcefull">强制全屏</string>
+    <string name="GPU">硬件渲染</string>
+    <string name="links">----相关链接(含非官方网站):</string>
+    <string name="startgame">启动游戏</string>
+    <string name="attention">点击名称进入相应官网，点击下载直接下载到手机。</string>
+    <string name="dl">直接下载</string>
 </resources>

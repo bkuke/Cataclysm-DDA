@@ -1328,25 +1328,25 @@ void options_manager::add_options_interface()
 
     // TODO: scan for languages like we do for tilesets.
     add( "USE_LANG", "interface", translate_marker( "Language" ),
-         translate_marker( "Switch Language." ), options_manager::lang_options, "" );
+         translate_marker( "Switch Language." ), options_manager::lang_options, "zh_CN" );
 
     add_empty_line();
 
     add( "USE_CELSIUS", "interface", translate_marker( "Temperature units" ),
          translate_marker( "Switch between Celsius, Fahrenheit and Kelvin." ),
     { { "fahrenheit", translate_marker( "Fahrenheit" ) }, { "celsius", translate_marker( "Celsius" ) }, { "kelvin", translate_marker( "Kelvin" ) } },
-    "fahrenheit"
+    "celsius"
        );
 
     add( "USE_METRIC_SPEEDS", "interface", translate_marker( "Speed units" ),
          translate_marker( "Switch between mph, km/h and tiles/turn." ),
     { { "mph", translate_marker( "mph" ) }, { "km/h", translate_marker( "km/h" ) }, { "t/t", translate_marker( "tiles/turn" ) } },
-    "mph"
+    "km/h"
        );
 
     add( "USE_METRIC_WEIGHTS", "interface", translate_marker( "Mass units" ),
          translate_marker( "Switch between kg and lbs." ),
-    { { "lbs", translate_marker( "lbs" ) }, { "kg", translate_marker( "kg" ) } }, "lbs"
+    { { "lbs", translate_marker( "lbs" ) }, { "kg", translate_marker( "kg" ) } }, "kg"
        );
 
     add( "VOLUME_UNITS", "interface", translate_marker( "Volume units" ),
@@ -2151,6 +2151,15 @@ void options_manager::add_options_android()
     const auto add_empty_line = [&]() {
         android_page_.items_.emplace_back();
     };
+
+
+    add( "ANDROID_OPENHELPER", "android",
+         translate_marker( "Open help screen before start native game" ),
+         translate_marker( "If true, open help scrren(Requires restart)." ),
+         false
+       );
+
+    add_empty_line();
 
     add( "ANDROID_QUICKSAVE", "android", translate_marker( "Quicksave on app lose focus" ),
          translate_marker( "If true, quicksave whenever the app loses focus (screen locked, app moved into background etc.) WARNING: Experimental. This may result in corrupt save games." ),
