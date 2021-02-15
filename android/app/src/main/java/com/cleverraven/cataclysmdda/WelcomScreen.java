@@ -20,6 +20,7 @@ public class WelcomScreen extends AppCompatActivity implements View.OnClickListe
         CheckBox checkBox1=findViewById(R.id.fscreen);
         CheckBox checkBox2=findViewById(R.id.GPU);
         Button button=findViewById(R.id.startgame);
+        Button button2=findViewById(R.id.endg);
         TextView textView1=findViewById(R.id.w1);
         TextView textView2=findViewById(R.id.w2);
         TextView textView3=findViewById(R.id.w3);
@@ -27,6 +28,12 @@ public class WelcomScreen extends AppCompatActivity implements View.OnClickListe
         TextView textView5=findViewById(R.id.w5);
         TextView textView6=findViewById(R.id.w6);
         button.setOnClickListener(new Checklistener(this,checkBox1,checkBox2));
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         textView1.setOnClickListener(this);
         textView2.setOnClickListener(this);
         textView3.setOnClickListener(this);

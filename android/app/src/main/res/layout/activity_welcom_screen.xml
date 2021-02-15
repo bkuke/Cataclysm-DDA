@@ -46,14 +46,31 @@
 
     </LinearLayout>
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:id="@+id/startgame"
-        android:textSize="30sp"
-        android:textColor="#72CD5E"
-        android:text="@string/startgame"/>
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/startgame"
+            android:textSize="30sp"
+            android:textColor="#72CD5E"
+            android:text="@string/startgame"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/endg"
+            android:textSize="30sp"
+            android:textColor="#AE033D"
+            android:text="退出"/>
+
+
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="match_parent"

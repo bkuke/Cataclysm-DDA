@@ -45,7 +45,6 @@ public class SplashScreen extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.e(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
 
         // Start the game if already installed, otherwise start installing...
