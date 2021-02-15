@@ -18,6 +18,9 @@
              <color_white>    关于常见问题的声明:</color>
 <color_light_red>******************************************************************************</color>
 
+<color_light_gray>问：<color_white> 怎么玩这个游戏?</color>
+<color_light_gray>答：<color_light_gray>通过<color_cyan>新游戏<color_light_gray>-></color>新角色</color>开始创建世界和游戏角色，最后给人物起个好听的名字之后，按TAB即可开始求生之旅。</color>
+
 <color_light_gray>问：<color_white> 我感觉游戏屏幕显示范围过大/过小?</color>
 <color_light_gray>答：<color_light_gray> 通过<color_cyan>设置<color_light_gray>-></color>选项<color_light_gray>-></color>图形<color_light_gray>-></color>终端宽度/终端高度</color>调整分辨率，可以左右滑动调整，也可点击唤出输入法直接输入，调整数值时显示的白框表示生效后显示范围。请根据屏幕分辨率以及人眼舒适度，按屏幕比例合理设置。保存并重启游戏后即可生效。</color>
 
