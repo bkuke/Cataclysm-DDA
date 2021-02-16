@@ -45,6 +45,31 @@
             android:text="@string/GPU"/>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+
+        <CheckBox
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/keyb"
+            android:checked="true"
+            android:textSize="30sp"
+            android:textColor="#9FBABD"
+            android:text="安全键盘"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:id="@+id/w8"
+            android:textColor="#FFEB3B"
+            android:text="关于输入法"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -118,6 +143,8 @@
         android:textSize="20sp"
         android:layout_margin="10dp"
         android:text="----资源"/>
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -134,6 +161,14 @@
         android:layout_margin="10dp"
         android:textColor="#00BCD4"
         android:text="音乐音效包一览"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:id="@+id/w7"
+        android:layout_margin="10dp"
+        android:textColor="#00BCD4"
+        android:text="推荐输入法安装"/>
 
 
 

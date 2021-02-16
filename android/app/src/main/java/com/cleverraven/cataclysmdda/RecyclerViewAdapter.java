@@ -4,14 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 
@@ -97,7 +98,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             if (code==1) {
                 des.setText("如果你没有备份存档文件，安装这些MOD后，在加载游戏时可能会彻底摧毁你的存档！");
             }else {
-                des.setText("和MOD列表不一样，音效包没有介绍，这是因为音乐不好形容，但可以保证的是它们基本都是阴间音效。");
+                des.setText("和MOD列表不一样，音效包没有介绍，这是因为音乐不好形容，唯一可以保证的是它们基本都是阴间音效。");
             }
         }
     }

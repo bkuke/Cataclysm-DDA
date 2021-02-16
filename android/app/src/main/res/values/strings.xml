@@ -11,4 +11,9 @@
     <string name="startgame">启动游戏</string>
     <string name="attention">点击名称进入相应官网，点击下载直接下载到手机。</string>
     <string name="dl">直接下载</string>
+    <string name="sp1">　　安全键盘选项如果勾选，那么在支持安全输入的手机上会弹出安全键盘。\n　　因为这个游戏的默认键位有TAB键及其类似的存在，在不修改默认键位设置的情况下，
+    输入可能不太方便，所以在欢迎界面最下方添加了一个推荐开源输入法，《hacker\'s keyboard》，返回之前的欢迎界面点击“推荐输入法安装”即可安装。\n　　实际上，它的APK文件位于Android->data->com_cleverraven_cataclysmdda->files->data文件夹内，大概3M大小，如果你觉得占用空间可以删除。其开发者的源码详见https://github.com/klausw/hackerskeyboard \n
+    实际显示状况如下图所示。</string>
+    <string name="sp2">&#12288;&#12288;上图之所以屏幕没有缩放，是通过在下图位置将虚拟键盘屏幕缩放设置为否。自动开关虚拟键盘选项在你连续输入时很有用，可以看情况调整。</string>
+    <string name="sp3">&#12288;&#12288;输入法安装完成后需要设置，步骤如下：先左上角的ENABLE KEYBOARD，启动输入法，再点SET INPUT METHOD，设置为当前输入法即可。</string>
 </resources>

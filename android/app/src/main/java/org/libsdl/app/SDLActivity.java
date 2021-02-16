@@ -2153,6 +2153,7 @@ class SDLSurface extends SurfaceView implements SurfaceHolder.Callback,
  * pan&scan region
  */
 class DummyEdit extends View implements View.OnKeyListener {
+    private static final String TAG = "CDDA";
     InputConnection ic;
 
     public DummyEdit(Context context) {
@@ -2207,7 +2208,13 @@ class DummyEdit extends View implements View.OnKeyListener {
     public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
         ic = new SDLInputConnection(this, true);
 
-        outAttrs.inputType = InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
+        SharedPreferences sharedPreferences=PreferenceManager.getDefaultSharedPreferences(SDL.getContext());
+        boolean a=sharedPreferences.getBoolean("safek",false);
+        if (a) {
+            outAttrs.inputType = InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD;
+        }else {
+            outAttrs.inputType = InputType.TYPE_CLASS_TEXT ;
+        }
         outAttrs.imeOptions = EditorInfo.IME_FLAG_NO_EXTRACT_UI
                 | EditorInfo.IME_FLAG_NO_FULLSCREEN /* API 11 */;
 
