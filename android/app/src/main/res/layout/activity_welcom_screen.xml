@@ -168,7 +168,7 @@
         android:id="@+id/w7"
         android:layout_margin="10dp"
         android:textColor="#00BCD4"
-        android:text="推荐输入法安装"/>
+        android:text="简洁输入法安装"/>
 
 
 
