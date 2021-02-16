@@ -245,7 +245,7 @@ android {
     productFlavors {
         stable {
             dimension "version"
-            resValue "string", "app_name", "浩劫余生"
+            resValue "string", "app_name", "大灾变：浩劫余生"
         }
         experimental {
             dimension "version"
